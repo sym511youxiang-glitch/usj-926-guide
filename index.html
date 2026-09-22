@@ -1,596 +1,427 @@
-<title>环球影城 9·26</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f4ef">
+<title>环球 9·26</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap');
 :root{
-  --bg:#f5f3ee;--s:#fff;--sd:#eceae4;--t:#1a1816;--t2:#605850;--t3:#908880;
-  --ac:#2860a0;--acs:#dce6f2;--or:#c06018;--ors:#fceee0;
-  --gn:#28784a;--gns:#dcf0e4;--rd:#b83838;--rds:#fce4e4;
-  --pu:#783ca0;--pus:#f0e4f8;--rn:#4070a8;--rns:#dceaf4;
-  --bd:#d8d4cc;--r:12px;
+  --bg:#f6f4ef;--card:#fff;--line:#e4e0d8;--t:#1c1a17;--t2:#5f5a52;--t3:#948d83;
+  --blue:#2457a3;--blue-s:#e3ebf7;--orange:#c25a12;--orange-s:#fbeadb;
+  --green:#22794a;--green-s:#dff1e5;--red:#b83232;--red-s:#f9e2e2;
+  --purple:#6c3fa4;--purple-s:#ede4f8;--gold:#8a6a10;--gold-s:#f7edcc;
+  --r:14px;--pad:16px;
 }
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e0e0e;--s:#1a1a1a;--sd:#222;--t:#e4e0d8;--t2:#a09890;--t3:#686058;
-  --ac:#6898d0;--acs:#182838;--or:#d88848;--ors:#281810;
-  --gn:#50b070;--gns:#102818;--rd:#d86060;--rds:#281010;
-  --pu:#b078d0;--pus:#201030;--rn:#6090c0;--rns:#101828;
-  --bd:#2a2a2a;
-}}
-:root[data-theme="dark"]{
-  --bg:#0e0e0e;--s:#1a1a1a;--sd:#222;--t:#e4e0d8;--t2:#a09890;--t3:#686058;
-  --ac:#6898d0;--acs:#182838;--or:#d88848;--ors:#281810;
-  --gn:#50b070;--gns:#102818;--rd:#d86060;--rds:#281010;
-  --pu:#b078d0;--pus:#201030;--rn:#6090c0;--rns:#101828;
-  --bd:#2a2a2a;
-}
-*{box-sizing:border-box;margin:0}
-body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--t);padding:0 20px;line-height:1.6;-webkit-font-smoothing:antialiased;font-size:15px}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#121110;--card:#1c1b19;--line:#2c2a27;--t:#ebe7df;--t2:#aca59a;--t3:#736d64;
+  --blue:#7ea6e8;--blue-s:#1b2a45;--orange:#f0955a;--orange-s:#3a2314;--green:#6cc48f;--green-s:#15301f;
+  --red:#ef7a7a;--red-s:#3d1b1b;--purple:#b995ec;--purple-s:#2a1f3d;--gold:#e0c05a;--gold-s:#3a2f10;}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Noto Sans SC",sans-serif;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+a{color:var(--blue)}
+.wrap{max-width:600px;margin:0 auto;padding:0 var(--pad)}
+h1{font-size:26px;margin:0;letter-spacing:.5px}
+h2{font-size:19px;margin:32px 0 10px}
+h3{font-size:16px;margin:0}
+p{margin:6px 0}
+.muted{color:var(--t2)}.small{font-size:13px}.tiny{font-size:12px;color:var(--t3)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;line-height:1.5;white-space:nowrap}
+.tag.b{background:var(--blue-s);color:var(--blue)}.tag.o{background:var(--orange-s);color:var(--orange)}
+.tag.g{background:var(--green-s);color:var(--green)}.tag.r{background:var(--red-s);color:var(--red)}
+.tag.p{background:var(--purple-s);color:var(--purple)}.tag.y{background:var(--gold-s);color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:10px 0;min-width:0;overflow-wrap:anywhere}
+.ride>*,.ghost>*{min-width:0}
+.strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 
-/* Header */
-.hdr{position:sticky;top:0;z-index:100;background:var(--bg);padding:14px 0 0}
-.hdr h1{font-size:22px;font-weight:900;letter-spacing:-.02em}
-.hdr-row{display:flex;justify-content:space-between;align-items:baseline}
-.hdr-date{font-size:13px;color:var(--t3)}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.chip{font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px}
-.c-rd{background:var(--rds);color:var(--rd)}.c-rn{background:var(--rns);color:var(--rn)}
-.c-pu{background:var(--pus);color:var(--pu)}.c-t3{background:var(--sd);color:var(--t3)}
-.nav{display:flex;gap:0;overflow-x:auto;margin-top:8px;padding-bottom:8px;border-bottom:1px solid var(--bd);scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav a{flex-shrink:0;font-size:14px;font-weight:600;padding:6px 14px;color:var(--t3);text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
-.nav a:active{color:var(--ac)}
+/* header */
+header{padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:6px}
+.now{margin-top:10px;background:var(--t);color:var(--bg);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:12px}
+.now .lbl{font-size:11px;letter-spacing:1px;opacity:.7}
+.now .txt{font-weight:700;font-size:16px}
+.now .nxt{font-size:13px;opacity:.8}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0;display:flex;gap:14px;overflow-x:auto;margin-top:10px;font-size:14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--t2);font-weight:600;padding:2px 0}
+nav a.on{color:var(--t);border-bottom:2px solid var(--t)}
 
-section{margin-top:32px}
-.st{font-size:19px;font-weight:900;margin-bottom:12px}
-.ss{font-size:13px;color:var(--t2);margin-bottom:14px;margin-top:-8px;line-height:1.5}
+/* phases */
+.phase{border:1px solid var(--line);border-radius:var(--r);background:var(--card);margin:12px 0;overflow:hidden}
+.phase>summary{list-style:none;cursor:pointer;padding:14px;display:flex;align-items:center;gap:12px}
+.phase>summary::-webkit-details-marker{display:none}
+.phase .time{font-variant-numeric:tabular-nums;font-weight:800;font-size:15px;min-width:92px;color:var(--blue)}
+.phase .name{font-weight:700;font-size:17px;flex:1}
+.phase .chev{color:var(--t3);transition:transform .2s}
+.phase[open] .chev{transform:rotate(90deg)}
+.phase.cur>summary{background:var(--blue-s)}
+.phase .body{padding:0 14px 14px;border-top:1px solid var(--line)}
+.step{display:flex;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.step:last-child{border-bottom:0}
+.step input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--green)}
+.step .st{flex:1;min-width:0}
+.step .t{font-weight:700}
+.step .t .at{color:var(--blue);font-variant-numeric:tabular-nums;margin-right:6px}
+.step .d{color:var(--t2);font-size:14px;margin-top:2px}
+.step.done .t{text-decoration:line-through;color:var(--t3)}
+.rule{background:var(--gold-s);color:var(--gold);border-radius:10px;padding:8px 12px;font-size:14px;margin:10px 0 0;font-weight:600}
+.alt{font-size:14px;margin-top:4px;color:var(--t2)}
+.alt b{color:var(--t)}
 
-/* Card */
-.card{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:10px}
-.card-h{padding:12px 16px;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-.card-b{padding:12px 16px;font-size:14px;color:var(--t2);line-height:1.7}
-.card-b b{color:var(--t);font-weight:600}
+/* map */
+.map{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:8px}
+.map svg{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--t2);padding:8px 6px 4px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c)}
 
-/* Alert */
-.al{padding:14px 16px;border-radius:var(--r);font-size:14px;margin-bottom:10px;line-height:1.7}
-.al b{font-weight:700}
-.al-rd{background:var(--rds);border-left:3px solid var(--rd)}
-.al-gn{background:var(--gns);border-left:3px solid var(--gn)}
-.al-rn{background:var(--rns);border-left:3px solid var(--rn)}
-.al-or{background:var(--ors);border-left:3px solid var(--or)}
+/* ride cards */
+.ride{display:grid;grid-template-columns:1fr auto;gap:4px 10px}
+.ride .meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ride .lv{font-size:13px;color:var(--t3);white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:8px;grid-column:1/-1}
+.bar i{display:block;height:100%;background:var(--orange)}
+.thr{font-size:13px;color:var(--t2);grid-column:1/-1}
+.thr b{color:var(--green)}
 
-/* Big number */
-.bigs{display:grid;grid-template-columns:1fr 1fr;background:var(--s);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;text-align:center}
-.big{padding:16px 12px}
-.big-label{font-size:12px;color:var(--t3);letter-spacing:.04em}
-.big-num{font-size:32px;font-weight:900;margin:4px 0;font-variant-numeric:tabular-nums}
-.big-sub{font-size:13px;color:var(--t2)}
-.bigs .big:first-child{border-right:1px solid var(--bd)}
+/* ghost */
+.ghost{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start}
+.ghost .sw{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)}
+.ghost .sw input{width:20px;height:20px;accent-color:var(--purple)}
+.ghost .desc{grid-column:1/-1;color:var(--t2);font-size:14px}
+.ghost.has{border-color:var(--purple)}
+.ghost.has .sw{color:var(--purple);font-weight:700}
 
-/* Ride card */
-.ride{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
-.ride-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.ride-name{font-size:16px;font-weight:700}
-.ride-tags{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
-.tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
-.t-hot{background:var(--rds);color:var(--rd)}.t-sr{background:var(--gns);color:var(--gn)}
-.t-rain{background:var(--rns);color:var(--rn)}.t-ghost{background:var(--pus);color:var(--pu)}
-.t-food{background:var(--ors);color:var(--or)}.t-show{background:var(--acs);color:var(--ac)}
-.ride-desc{font-size:14px;color:var(--t2);line-height:1.7;margin-top:8px}
-.ride-desc b{color:var(--t);font-weight:600}
-.ride-rate{font-size:13px;font-weight:600;color:var(--or);margin-top:8px;padding-top:8px;border-top:1px solid var(--bd)}
+/* food */
+.food{display:flex;gap:10px;align-items:flex-start}
+.food .price{font-weight:800;color:var(--orange);white-space:nowrap;font-size:15px}
+.food .where{color:var(--t3);font-size:13px}
 
-/* Food card */
-.food{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
-.food-top{display:flex;justify-content:space-between;align-items:baseline}
-.food-name{font-size:16px;font-weight:700}
-.food-price{font-size:14px;font-weight:600;color:var(--or);font-variant-numeric:tabular-nums}
-.food-loc{font-size:13px;color:var(--t3);margin-top:2px}
-.food-desc{font-size:14px;color:var(--t2);margin-top:6px;line-height:1.7}
-.food-desc b{color:var(--t);font-weight:600}
+/* checklist */
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk label{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px}
+.chk input{width:20px;height:20px;accent-color:var(--green)}
+.chk label.done{color:var(--t3);text-decoration:line-through}
 
-/* Timeline */
-.tl{display:flex;flex-direction:column;gap:2px}
-.tl-ph{font-size:13px;font-weight:700;letter-spacing:.04em;padding:12px 0 4px;color:var(--t3)}
-.tl-i{display:grid;grid-template-columns:52px 12px 1fr;gap:0 10px;min-height:48px;align-items:start}
-.tl-t{font-size:14px;font-weight:700;text-align:right;padding-top:10px;font-variant-numeric:tabular-nums;color:var(--ac)}
-.tl-tr{display:flex;flex-direction:column;align-items:center;padding-top:10px}
-.tl-d{width:10px;height:10px;border-radius:50%;background:var(--ac);flex-shrink:0}
-.tl-l{width:2px;flex:1;background:var(--bd);margin-top:3px;min-height:20px}
-.tl-c{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);padding:10px 14px;margin:3px 0}
-.tl-n{font-size:15px;font-weight:600}
-.tl-x{font-size:13px;color:var(--t2);margin-top:2px;line-height:1.5}
-
-.clr-or{color:var(--or)}.clr-pu{color:var(--pu)}.clr-gn{color:var(--gn)}.clr-rd{color:var(--rd)}.clr-rn{color:var(--rn)}
-.bg-or{background:var(--or)}.bg-pu{background:var(--pu)}.bg-gn{background:var(--gn)}.bg-rd{background:var(--rd)}.bg-rn{background:var(--rn)}
-
-/* Rain grid */
-.rgrid{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px;padding:14px 16px;background:var(--s);border:1px solid var(--bd);border-radius:var(--r)}
-.rgrid .n{font-weight:500}.rok{color:var(--gn);font-weight:600}.rrisk{color:var(--or);font-weight:600}
-
-/* Ghost */
-.ghost{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center}
-.ghost-n{font-size:22px;font-weight:900;color:var(--pu)}
-.ghost-name{font-size:16px;font-weight:700}
-.ghost-meta{font-size:13px;color:var(--t2);margin-top:2px;line-height:1.5}
-.ghost-w{font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;background:var(--pus);color:var(--pu);white-space:nowrap}
-
-/* Checklist */
-.cl{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cl label{display:flex;align-items:center;gap:8px;font-size:14px;padding:10px 12px;background:var(--s);border:1px solid var(--bd);border-radius:8px;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.cl input[type=checkbox]{width:20px;height:20px;border-radius:5px;flex-shrink:0;border:2px solid var(--bd);appearance:none;-webkit-appearance:none;background:var(--s);cursor:pointer}
-.cl input:checked{background:var(--ac);border-color:var(--ac);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2.5-2.5a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")}
-
-/* Map */
-.map-wrap{background:var(--s);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}
-.map-legend{display:flex;flex-wrap:wrap;gap:8px 12px;padding:12px 16px;border-top:1px solid var(--bd);font-size:13px;color:var(--t2)}
-
-footer{margin-top:40px;padding:16px 0 24px;border-top:1px solid var(--bd);font-size:12px;color:var(--t3);text-align:center;line-height:1.6}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{white-space:nowrap;font-weight:600}
+cite{display:block;font-style:normal;font-size:12px;color:var(--t3);margin-top:6px;line-height:1.6}
+cite a{display:block;color:var(--t3);text-decoration:none;margin:2px 0}
+cite a b{color:var(--blue);font-weight:600}
+.why{font-size:13px;color:var(--t2);background:var(--bg);border-left:3px solid var(--blue);padding:6px 10px;border-radius:0 8px 8px 0;margin-top:8px}
+.why b{color:var(--blue)}
+.srcs a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--t);font-size:14px}
+.srcs a span{color:var(--t3);font-size:12px;margin-left:6px}
+footer{margin-top:40px;font-size:12px;color:var(--t3);line-height:1.6}
+.reset{background:none;border:1px solid var(--line);color:var(--t3);border-radius:8px;padding:6px 10px;font-size:12px}
 </style>
-
-<header class="hdr">
-  <div class="hdr-row"><h1>环球影城 9·26</h1><span class="hdr-date">周六 · 中秋第二天</span></div>
-  <div class="chips">
-    <span class="chip c-rd">预计 3 万+人</span>
-    <span class="chip c-rn">雨 17–24°C</span>
-    <span class="chip c-pu">鬼屋优速通×3</span>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h1>环球 9·26</h1><span class="muted small">周六 · 中秋第二天</span>
+    </div>
+    <div class="strip" style="margin-top:8px">
+      <span class="tag r">预计 3 万+ 人</span><span class="tag b">雨 19–24°C · 75%</span><span class="tag p">鬼屋优速通 17–20</span><span class="tag g">园 10:00–22:00</span>
+    </div>
+    <div class="now" id="now"><div><div class="lbl">现在</div><div class="txt" id="nowTxt">—</div><div class="nxt" id="nowNxt"></div></div></div>
+    <nav id="nav">
+      <a href="#plan">当天</a><a href="#map">地图</a><a href="#rides">项目</a><a href="#ghost">鬼屋</a><a href="#food">吃</a><a href="#rain">下雨</a><a href="#pack">带什么</a>
+    </nav>
   </div>
-  <nav class="nav">
-    <a href="#go">出发</a>
-    <a href="#plan">核心策略</a>
-    <a href="#rides">项目</a>
-    <a href="#tl">时间表</a>
-    <a href="#ghost">鬼屋</a>
-    <a href="#food">吃喝</a>
-    <a href="#rain">雨天</a>
-    <a href="#pack">随身</a>
-  </nav>
 </header>
 
-<!-- 出发 -->
-<section id="go">
-  <div class="st">出发</div>
-  <div class="ss">恒大江湾西南门 → 环球影城 · 约 30 km</div>
+<main class="wrap">
 
-  <div class="bigs">
-    <div class="big">
-      <div class="big-label">出门</div>
-      <div class="big-num" style="color:var(--ac)">10:00</div>
-      <div class="big-sub">出门前吃好早餐</div>
-    </div>
-    <div class="big">
-      <div class="big-label">到达</div>
-      <div class="big-num" style="color:var(--gn)">11:00</div>
-      <div class="big-sub">安检约 15 min</div>
-    </div>
+<!-- ===== 策略 ===== -->
+<h2 id="plan">一句话策略</h2>
+<div class="card">
+  <p><b>白天别硬排大项目，晚上 21–22 点全都只要 20 分钟。</b></p>
+  <p class="muted small">中秋周六白天热门项目 90–150 分钟。但 9 月多篇实测：21 点后禁忌之旅、火种源、侏罗纪、霸天虎都降到 20 分钟左右。所以白天玩排队短的、吃、拍、看表演；17–20 点用优速通刷三个鬼屋；最后一小时收大项目。</p><cite data-s="nx momo zq will"></cite>
+  <div class="rule">排队阈值：≤ 45 分钟排；45–70 看心情；> 70 走人，晚上回来。</div><div class="why"><b>为什么晚上快</b>：中秋 3 万人里大部分是家庭客，20 点后大批离园；鬼屋又把年轻人吸走。9/5、9/10 两位无优速通的博主都在 21 点后 20 分钟刷完禁忌之旅、火种源、侏罗纪。</div>
+</div>
+
+<!-- ===== 阶段 ===== -->
+<details class="phase" data-s="0" data-e="11" id="ph0">
+  <summary><span class="time">10:00</span><span class="name">出发</span><span class="chev">›</span></summary>
+  <div class="body">
+    <div class="step"><input type="checkbox" data-k="s-brk"><div class="st"><div class="t"><span class="at">09:30</span>吃好早饭</div><div class="d">园里第一顿要到 12 点半，路上 1 小时。</div></div></div>
+    <div class="step"><input type="checkbox" data-k="s-app"><div class="st"><div class="t">装好「北京环球度假区」App，登录、绑票、绑优速通</div><div class="d">进园全靠它看实时排队和演出时间。App 显示的时间一般偏长，实际更短。</div></div></div>
+    <div class="step"><input type="checkbox" data-k="s-car"><div class="st"><div class="t"><span class="at">10:00</span>打车，目的地搜「北京环球度假区 网约车上落客区」</div><div class="d">恒大江湾西南门 → 京哈高速田家府出口，约 28 km，不堵 45 分钟，中秋估 50–70 分钟，60–90 元。落客区离安检 50 米。</div><div class="alt"><b>备选</b> 地铁 3 号线东坝站两次换乘到「环球度假区站」约 65 分钟，B/C/D 口出步行 7 分钟。打车加价太狠再用。</div></div></div>
+    <div class="step"><input type="checkbox" data-k="s-id"><div class="st"><div class="t">出门检查：身份证 ×2、充电宝、雨衣 ×2、水</div><div class="d">入园刷脸 + 身份证。完整清单见「带什么」。</div></div></div>
   </div>
+</details>
 
-  <div class="card" style="margin-top:10px">
-    <div class="card-h"><span>打车 / 网约车</span><span style="font-weight:400;color:var(--gn);font-size:13px">推荐 · 40–70 min</span></div>
-    <div class="card-b">
-      导航搜「北京环球度假区」，走京哈高速田家府站出。<br>
-      <b>中秋路况：</b>10 点出发避开 9–11 点入园高峰，路上相对畅通。通州有运河文化活动交通管制（14 点起），不影响你们。<br>
-      费用约 <b>60–90 元</b>。
-    </div>
+<details class="phase" data-s="11" data-e="13" id="ph1">
+  <summary><span class="time">11:00–13:00</span><span class="name">进园 · 变形金刚区</span><span class="chev">›</span></summary>
+  <div class="body">
+    <div class="step"><input type="checkbox" data-k="s-in"><div class="st"><div class="t"><span class="at">11:00</span>安检入园，<b>进门左转</b></div><div class="d">11 点后安检基本不排。进门左手第一个就是变形金刚区（5 分钟路），大部分人往右冲哈利波特。</div><cite data-s="momo zq"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-sticker"><div class="st"><div class="t">顺路领《盗墓笔记》游客贴纸</div><div class="d">好莱坞大道游客服务处，每天会发完，一进园就领。</div><cite data-s="lily"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-tf"><div class="st"><div class="t"><span class="at">11:15</span>火种源争夺战 <span class="tag b">室内</span></div><div class="d">4D 战车，全园口碑最稳的一个，排队区本身像军事基地。≤ 60 分钟就排，超了先吃饭。</div><cite data-s="lx mnl"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-lunch"><div class="st"><div class="t"><span class="at">12:30</span>午饭：能量晶体补充站（就在变形金刚区）</div><div class="d">猪软骨肋排炒饭 / 烤肋排饭约 70 元，小红书 9000 赞共识"吊打全园"，12 点半前基本不排。</div><div class="alt"><b>备选</b> 肘子饭（好莱坞，分量大不排队）· 霓虹街道餐厅干锅鸡翅虾（城市大道方向，会员价约 30）· 三把扫帚（哈利波特区，为氛围去，排队 30–60 分钟，评价两极）</div><cite data-s="bb tj px xy"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-bth"><div class="st"><div class="t">霸天虎过山车 <span class="tag o">室外</span> <span class="tag r">存手机</span></div><div class="d">全园唯一真过山车，翻转、倒挂。手机必须存柜（入口旁，1 小时内免费），存完空手排很煎熬。<b>白天 ≤ 45 分钟才排，否则留到 21 点（实测 20 分钟）。</b>下雨大概率停运，停了就不惦记。</div><cite data-s="mnl momo2 xiaohui"></cite></div></div>
   </div>
-  <div class="card">
-    <div class="card-h"><span>地铁备选</span><span style="font-weight:400;color:var(--ac);font-size:13px">55–70 min · 不堵车</span></div>
-    <div class="card-b">
-      <b>3 号线东坝站</b> → 换乘 1 号线/八通线 → <b>环球度假区站 B 口</b>出，步行 7 min。<br>
-      假期打车加价/等车久就坐地铁，时间确定。
-    </div>
+</details>
+
+<details class="phase" data-s="13" data-e="16.5" id="ph2">
+  <summary><span class="time">13:00–16:30</span><span class="name">下午 · 顺时针慢慢走</span><span class="chev">›</span></summary>
+  <div class="body">
+    <p class="muted small">这是全天排队最长的时段，目标是"走完半圈、玩 2 个、拍照、看一场表演"，别在一个队里耗 2 小时。</p>
+    <div class="step"><input type="checkbox" data-k="s-jw"><div class="st"><div class="t"><span class="at">13:30</span>侏罗纪世界大冒险 <span class="tag b">室内</span></div><div class="d">船车穿实验室，霸王龙开场最震撼，会溅点水。≤ 60 排；不然 21 点再来。旁边「飞越侏罗纪」多人说不值排，跳过。</div><cite data-s="mnl cz"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-kfp"><div class="st"><div class="t"><span class="at">14:30</span>功夫熊猫园区 <span class="tag g">全室内 · 避雨区</span></div><div class="d">神龙大侠之旅是舒缓漂流船，一般 30 分钟以内。下雨就在这里躲，有空调有座。</div><cite data-s="hy"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-ww"><div class="st"><div class="t">未来水世界特技表演 <span class="tag o">室外</span></div><div class="d">真人特技 + 爆炸 + 水上摩托，约 20 分钟，不排队但要提前 15 分钟占座。场次只在 App 里，进园就查。前排必湿。雨大会取消。</div><cite data-s="mb"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-hp"><div class="st"><div class="t"><span class="at">15:30</span>哈利波特区：逛对角巷、城堡拍照、黄油啤酒</div><div class="d">禁忌之旅这时通常 90+ 分钟，<b>不排</b>，留到 21 点。猪头酒吧（三把扫帚旁小门）买黄油啤酒，无酒精、偏甜，冰沙版好一点。</div><div class="alt"><b>临时起意</b> 小黄人闹翻天（轻松，≤ 40 排）· 鹰马飞行（小过山车，室外）· 灯光摄像开拍（室内特效秀，不排队时进去歇脚）</div><cite data-s="sp tz"></cite></div></div>
   </div>
-</section>
+</details>
 
-<!-- 核心策略 -->
-<section id="plan">
-  <div class="st">核心策略</div>
-
-  <div class="al al-rd">
-    <b>中秋 + 周六 + 惊彩季 = 高峰日。</b>没有普通优速通，每个热门项目排 60–120 分钟。<b>精选 4–5 个最值得的</b>，不要贪多赶场，体验质量 > 数量。
+<details class="phase" data-s="16.5" data-e="20" id="ph3">
+  <summary><span class="time">16:30–20:00</span><span class="name">鬼屋 · 优速通窗口</span><span class="chev">›</span></summary>
+  <div class="body">
+    <div class="rule">优速通只在 17:00–20:00 有效，三个都要在 20 点前进门。就算门口写"截止排队"，优速通也能进。</div><cite data-s="olf dmw kk lyp"></cite>
+    <div class="step"><input type="checkbox" data-k="s-g0"><div class="st"><div class="t"><span class="at">16:40</span>从哈利波特区走到小黄人乐园（相邻，10 分钟）</div><div class="d">盗墓笔记、静默之地、画皮幽宅都在小黄人一带（原杰克马戏团位置，「欢乐好声音」旁）。先上个厕所。</div><cite data-s="hz cn"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-g1"><div class="st"><div class="t"><span class="at">17:00</span>① 盗墓笔记 <span class="tag p">优速通</span></div><div class="d">最热最吓，通道窄只能单排走，NPC 会从天花板出来。优速通实测 5–30 分钟。</div><cite data-s="rr kk xh"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-g2"><div class="st"><div class="t"><span class="at">17:45</span>② 画皮幽宅 <span class="tag p">优速通</span></div><div class="d">中式恐怖，靠氛围不靠跳吓，纸扎人和真人混着。就在侏罗纪入口和小黄人牌子之间。</div><cite data-s="hz dmw"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-g3"><div class="st"><div class="t"><span class="at">18:30</span>③ 静默之地 <span class="tag p">优速通</span></div><div class="d">规则是全程不能出声，机关触发为主，恐怖度低，当中场休息。</div><cite data-s="en olf"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-snack"><div class="st"><div class="t"><span class="at">19:15</span>晚饭 / 小吃</div><div class="d">小黄人区和好莱坞有摊。万圣限定好评：恶魔鸡爪、烟熏鸭腿；青苹果雪泥解腻。</div><div class="alt"><b>正经吃</b> 流浪者小馆万圣套餐 228 元三人吃不完（城市大道方向）· 再来一次能量晶体 · 三把扫帚这时排队短一些</div><cite data-s="llk js px"></cite></div></div>
+    <div class="rule" style="background:var(--purple-s);color:var(--purple)">鬼屋走位：走第一个反而最不怕（NPC 来不及），中段最容易被吓。两人挨着，被陌生人拽着当盾就靠边站让他们先过。NPC 不碰人，举手示意就退。<cite data-s="olf qx"></cite></div>
   </div>
+</details>
 
-  <div class="al al-gn">
-    <b>入园右转，先去变形金刚区。</b>大多数人左转冲哈利波特，右转变形金刚区上午人少得多。下午 14 点后各区排队开始回落，再去哈利波特。
+<details class="phase" data-s="20" data-e="21" id="ph4">
+  <summary><span class="time">20:00–21:00</span><span class="name">表演 · 夜景</span><span class="chev">›</span></summary>
+  <div class="body">
+    <div class="step"><input type="checkbox" data-k="s-ds"><div class="st"><div class="t">食死徒来袭 <span class="tag y">哈利波特区</span></div><div class="d">霍格莫德村舞台，App 标的第一段只有 5 分钟，NPC 下台游走 20 分钟后会回台接着演，别散场就走。有鬼日城堡灯光秀只在这个表演里出现。开演后哈利波特区入口可能限流，早点进。</div><cite data-s="qlz momo2"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-uw"><div class="st"><div class="t">地下世界崛起 <span class="tag y">好莱坞主舞台</span> <span class="tag o">室外</span></div><div class="d">惊彩季主秀，雨大取消。梅根在可乐塔约 19:30 / 20:20 两场。街头惊叫区（梅尔斯禁地、反可爱派对）随便穿一下。</div></div></div>
+    <div class="step"><input type="checkbox" data-k="s-photo"><div class="st"><div class="t">城堡夜景拍照</div><div class="d">晚上气温降到 19°C 左右，把薄外套穿上。</div></div></div>
   </div>
+</details>
 
-  <div class="al al-rn">
-    <b>雨天是你们的盟友。</b>80% 项目室内，下雨会劝退部分游客，实际排队可能比预测短。穿雨衣排队即可。
+<details class="phase" data-s="21" data-e="22" id="ph5">
+  <summary><span class="time">21:00–22:00</span><span class="name">黄金一小时 · 收大项目</span><span class="chev">›</span></summary>
+  <div class="body">
+    <div class="rule">这一小时白天 2 小时的项目都只要 20 分钟。22:00 前排上就能玩。按 App 实时排队挑，别跑冤枉路。</div><cite data-s="nx momo en shevy"></cite>
+    <div class="step"><input type="checkbox" data-k="s-fb"><div class="st"><div class="t"><span class="at">21:00</span>禁忌之旅 <span class="tag b">室内</span> <span class="tag r">存包</span></div><div class="d">全园第一。飞越城堡和魁地奇球场，实景和巨幕无缝切换。排队区就是城堡内部，画像会动。可带手机，放拉链兜。</div><cite data-s="sp mnl"></cite></div></div>
+    <div class="step"><input type="checkbox" data-k="s-g5"><div class="st"><div class="t"><span class="at">21:30</span>第五人格·逃离白沙街（无优速通）</div><div class="d">在变形金刚区东侧。解谜型：记住沿途数字找正确出口，走对了盖章能换游戏卡。不太吓人。21 点后 20–40 分钟。</div><cite data-s="xh en dmw"></cite><div class="alt"><b>或者</b> 地下秘穴（好莱坞，梅尔斯餐厅旁，10 分钟，离出口最近，恐怖最低）· 白天没玩的霸天虎 / 侏罗纪 / 火种源二刷</div></div></div>
+    <div class="step"><input type="checkbox" data-k="s-out"><div class="st"><div class="t"><span class="at">22:00</span>离园，走到落客区打车</div><div class="d">城市大道 23:00 关，大地球这时人最少最好拍。地铁 7 号线末班 22:29、八通线 22:52，赶得上但紧；打车约 80–110 元，到家 23 点左右。</div></div></div>
   </div>
+</details>
 
-  <div class="al al-or">
-    <b>App 是你们的指挥官。</b>提前下好「北京环球度假区」App，进园后实时看排队时间。哪个短先去哪个，别死磕计划。
-  </div>
-</section>
+<!-- ===== 地图 ===== -->
+<h2 id="map">园区地图</h2>
+<p class="muted small">按官网地图坐标画的真实方位。入口在西南角，<b>左转顺时针</b>走一圈。</p>
+<div class="map">
+<svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,PingFang SC,sans-serif">
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c25a12"/></marker></defs>
+  <!-- park outline -->
+  <path d="M40 260 C20 200 20 120 60 70 C110 15 260 20 320 70 C360 110 350 200 300 250 C250 295 120 295 40 260Z" fill="#eef0e6" stroke="#cfd4c4"/>
+  <!-- lake -->
+  <ellipse cx="216" cy="158" rx="46" ry="34" fill="#cfe1ee" stroke="#a9c4d8"/>
+  <text x="216" y="162" font-size="9" fill="#5a7a90" text-anchor="middle">中央湖</text>
+  <!-- route -->
+  <path d="M68 236 L78 200 L74 120 L120 100 L150 140 L182 88 L238 78 L286 122 L262 170 L200 226 L110 224 L80 240" fill="none" stroke="#c25a12" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#ah)" opacity=".85"/>
+  <!-- zones -->
+  <g font-size="10.5" font-weight="700" text-anchor="middle">
+    <rect x="28" y="66" width="76" height="44" rx="8" fill="#e3ebf7" stroke="#2457a3"/><text x="66" y="82" fill="#2457a3">变形金刚</text><text x="66" y="94" font-size="8.5" font-weight="400" fill="#2457a3">火种源 · 霸天虎</text><text x="66" y="105" font-size="8.5" font-weight="400" fill="#2457a3">能量晶体补充站</text>
+    <rect x="108" y="128" width="72" height="34" rx="8" fill="#dff1e5" stroke="#22794a"/><text x="144" y="142" fill="#22794a">侏罗纪</text><text x="144" y="155" font-size="8.5" font-weight="400" fill="#22794a">大冒险 · 飞越</text>
+    <rect x="150" y="52" width="66" height="34" rx="8" fill="#fbeadb" stroke="#c25a12"/><text x="183" y="66" fill="#c25a12">功夫熊猫</text><text x="183" y="79" font-size="8.5" font-weight="400" fill="#c25a12">全室内 · 避雨</text>
+    <rect x="222" y="44" width="62" height="34" rx="8" fill="#cfe1ee" stroke="#3a6f95"/><text x="253" y="58" fill="#3a6f95">未来水世界</text><text x="253" y="71" font-size="8.5" font-weight="400" fill="#3a6f95">特技表演</text>
+    <rect x="262" y="104" width="76" height="46" rx="8" fill="#f7edcc" stroke="#8a6a10"/><text x="300" y="120" fill="#8a6a10">哈利波特</text><text x="300" y="133" font-size="8.5" font-weight="400" fill="#8a6a10">禁忌之旅 · 鹰马</text><text x="300" y="144" font-size="8.5" font-weight="400" fill="#8a6a10">三把扫帚 · 城堡</text>
+    <rect x="160" y="212" width="80" height="46" rx="8" fill="#ede4f8" stroke="#6c3fa4"/><text x="200" y="228" fill="#6c3fa4">小黄人</text><text x="200" y="241" font-size="8.5" font-weight="400" fill="#6c3fa4">闹翻天</text><text x="200" y="252" font-size="8.5" font-weight="400" fill="#6c3fa4">盗墓笔记 · 静默 · 画皮</text>
+    <rect x="52" y="196" width="66" height="30" rx="8" fill="#fff" stroke="#948d83"/><text x="85" y="209" fill="#5f5a52">好莱坞</text><text x="85" y="221" font-size="8.5" font-weight="400" fill="#5f5a52">地下秘穴 · 肘子饭</text>
+    <!-- ghost marks -->
+    <circle cx="114" cy="118" r="6" fill="#6c3fa4"/><text x="114" y="121" font-size="7" fill="#fff">鬼</text>
+    <text x="123" y="121" font-size="8" font-weight="400" fill="#6c3fa4" text-anchor="start">第五人格</text>
+    <circle cx="138" cy="200" r="6" fill="#6c3fa4"/><text x="138" y="203" font-size="7" fill="#fff">鬼</text>
+    <text x="138" y="192" font-size="8" font-weight="400" fill="#6c3fa4">画皮</text>
+    <!-- entrance -->
+    <rect x="42" y="248" width="52" height="22" rx="6" fill="#1c1a17"/><text x="68" y="263" fill="#fff" font-size="10">入口</text>
+    <text x="68" y="285" font-size="9" font-weight="400" fill="#5f5a52">↓ 城市大道 · 落客区</text>
+    <text x="20" y="180" font-size="9" fill="#c25a12" transform="rotate(-70 20 180)">左转 ➜</text>
+  </g>
+</svg>
+<div class="legend"><span style="--c:#c25a12">虚线 = 建议走向</span><span style="--c:#6c3fa4">紫圈 = 鬼屋</span></div>
+</div>
+<div class="card small muted">
+  距离感：入口→变形金刚 5 分钟；变形金刚→侏罗纪 5 分钟；侏罗纪→功夫熊猫→水世界 各 5 分钟；水世界→哈利波特 5 分钟；哈利波特→小黄人 8–10 分钟；小黄人→入口 5 分钟。绕一整圈约 2.5 公里。
+</div>
 
-<!-- 项目 -->
-<section id="rides">
-  <div class="st">项目详解</div>
-  <div class="ss">综合小红书 2.2 万赞玩后感 + 携程测评</div>
+<!-- ===== 项目 ===== -->
+<h2 id="rides">项目怎么选</h2>
+<p class="muted small">刺激度 1–5。阈值 = 白天愿意排的上限，超了就留到 21 点。</p>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">哈利波特与禁忌之旅</div>
-      <div class="ride-tags"><span class="tag t-hot">全园 TOP1</span></div>
-    </div>
-    <div class="ride-desc">
-      坐在会动的座椅上飞过霍格沃茨城堡、魁地奇球场和禁林。实景和巨幕无缝切换，俯冲翱翔感极强。<b>排队本身就是体验</b>——穿过城堡内部，看到会动的画像和邓布利多全息投影。不恐怖，有轻微失重感。
-    </div>
-    <div class="ride-rate">排队约 90–120 min · 室内不怕雨</div>
-  </div>
+<div class="card ride"><h3>哈利波特与禁忌之旅</h3><span class="lv">刺激 3</span>
+  <div class="meta"><span class="tag y">全园 TOP1</span><span class="tag b">室内</span><span class="tag r">存包·可带手机</span><span class="tag">122 cm</span></div>
+  <p class="small muted">动感座椅 + 实景 + 巨幕，飞过城堡、魁地奇球场、禁林，有失重和俯冲。排队本身是穿城堡，会动的画像、邓布利多办公室。</p>
+  <div class="bar"><i style="width:95%"></i></div><div class="thr">白天 90–150 分 · <b>21 点后 20 分</b> · 阈值 45</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">变形金刚：火种源争夺战</div>
-      <div class="ride-tags"><span class="tag t-hot">必玩</span></div>
-    </div>
-    <div class="ride-desc">
-      戴 3D 眼镜坐战车，和擎天柱一起打霸天虎。打斗画面极逼真，车辆俯冲翻转有真实加速度感。<b>排队区也有戏</b>——复刻电影军事基地，很有代入感。刺激但不是过山车的失重，更像 4D 电影升级版。
-    </div>
-    <div class="ride-rate">排队约 60–90 min · 室内不怕雨</div>
-  </div>
+<div class="card ride"><h3>变形金刚：火种源争夺战</h3><span class="lv">刺激 3</span>
+  <div class="meta"><span class="tag g">必玩</span><span class="tag b">室内</span><span class="tag">102 cm</span></div>
+  <p class="small muted">3D 眼镜坐战车，和擎天柱打霸天虎，加速俯冲翻转都是真车感。是 4D 电影升级版，不是过山车失重。</p>
+  <div class="bar"><i style="width:70%"></i></div><div class="thr">白天 60–90 分 · <b>21 点后 20 分</b> · 阈值 60</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">霸天虎过山车</div>
-      <div class="ride-tags"><span class="tag t-hot">最刺激</span><span class="tag t-rain">室外</span></div>
-    </div>
-    <div class="ride-desc">
-      全园<b>唯一真正的过山车</b>，弯道多、速度快、有倒挂。喜欢刺激的首选。<b>必须存包和手机</b>（旁边免费寄存柜），不能带任何松散物品上车。
-    </div>
-    <div class="ride-rate">排队约 60–90 min · 室外，暴雨会暂停</div>
-  </div>
+<div class="card ride"><h3>霸天虎过山车</h3><span class="lv">刺激 5</span>
+  <div class="meta"><span class="tag r">最刺激</span><span class="tag o">室外·雨停</span><span class="tag r">手机必须存</span><span class="tag">132 cm</span></div>
+  <p class="small muted">全园唯一真过山车：快、弯多、倒挂 360°。入口后存包 + 二次安检，眼镜要固定。周六爆园实测 100 分钟，晚上 20 分钟。</p>
+  <div class="bar"><i style="width:75%"></i></div><div class="thr">白天 60–100 分 · <b>21 点后 20 分</b> · 阈值 45</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">侏罗纪世界大冒险</div>
-      <div class="ride-tags"><span class="tag t-sr">沉浸体验</span></div>
-    </div>
-    <div class="ride-desc">
-      乘车穿越侏罗纪实验室，裸眼 3D 和实景交替。6 米高霸王龙突然冲出，车急刹躲避。<b>开场画面最震撼</b>，整体刺激中等，偏沉浸感。
-    </div>
-    <div class="ride-rate">排队约 60–90 min · 室内不怕雨</div>
-  </div>
+<div class="card ride"><h3>侏罗纪世界大冒险</h3><span class="lv">刺激 3</span>
+  <div class="meta"><span class="tag g">沉浸</span><span class="tag b">室内</span><span class="tag">102 cm</span></div>
+  <p class="small muted">船车穿过实验室，裸眼 3D 和实景交替，6 米霸王龙冲出来急刹躲避。会溅水。开头最震撼。</p>
+  <div class="bar"><i style="width:65%"></i></div><div class="thr">白天 60–90 分 · <b>21 点后 20 分</b> · 阈值 60</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">小黄人闹翻天</div>
-      <div class="ride-tags"><span class="tag t-show">轻松</span></div>
-    </div>
-    <div class="ride-desc">
-      坐动感座椅看巨幕，跟小黄人经历一场疯狂冒险。画面可爱搞笑，有轻微失重。<b>适合调节节奏</b>，刺激项目之间来段轻松的。
-    </div>
-    <div class="ride-rate">排队约 40–60 min · 室内不怕雨</div>
-  </div>
+<div class="card ride"><h3>神偷奶爸小黄人闹翻天</h3><span class="lv">刺激 2</span>
+  <div class="meta"><span class="tag b">室内</span><span class="tag">102 cm</span></div>
+  <p class="small muted">动感座椅看巨幕，可爱搞笑，轻微失重。刺激项目之间调节用。</p>
+  <div class="bar"><i style="width:45%"></i></div><div class="thr">白天 40–60 分 · 阈值 40</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">功夫熊猫：神龙大侠之旅</div>
-      <div class="ride-tags"><span class="tag t-show">视觉美</span></div>
-    </div>
-    <div class="ride-desc">
-      乘船漂流穿过功夫熊猫的世界，视觉效果精美，整体舒缓放松。排队通常不长，适合午后。
-    </div>
-    <div class="ride-rate">排队约 30–50 min · 室内不怕雨</div>
-  </div>
+<div class="card ride"><h3>功夫熊猫：神龙大侠之旅</h3><span class="lv">刺激 1</span>
+  <div class="meta"><span class="tag g">避雨</span><span class="tag b">室内</span><span class="tag">80 cm</span></div>
+  <p class="small muted">室内漂流船，画面精美节奏慢。有人说"低配加勒比海盗"，当休息。</p>
+  <div class="bar"><i style="width:30%"></i></div><div class="thr">通常 15–40 分 · 阈值 30</div></div>
 
-  <div class="ride">
-    <div class="ride-top">
-      <div class="ride-name">未来水世界特技表演</div>
-      <div class="ride-tags"><span class="tag t-show">必看演出</span><span class="tag t-rain">室外</span></div>
-    </div>
-    <div class="ride-desc">
-      真人特技+爆炸+水上摩托+飞机坠毁，全程高能。<b>前排一定会被水淋</b>（本来就喷水，下雨更无所谓）。提前 20 min 到场，先查 App 看当天场次。
-    </div>
-    <div class="ride-rate">固定场次 · 约 20 min · 暴雨可能取消</div>
-  </div>
+<div class="card ride"><h3>未来水世界特技表演</h3><span class="lv">演出</span>
+  <div class="meta"><span class="tag g">必看</span><span class="tag o">室外·雨大取消</span></div>
+  <p class="small muted">真人特技、爆炸、水上摩托、飞机坠毁，20 分钟高能。看台无遮挡，前排全湿。场次只在 App。</p>
+  <div class="thr">不排队 · 提前 15 分钟占座</div></div>
 
-  <div class="ride" style="opacity:.6">
-    <div class="ride-top">
-      <div class="ride-name">鹰马飞行</div>
-      <div class="ride-tags"><span class="tag t-rain">室外</span></div>
-    </div>
-    <div class="ride-desc">
-      哈利波特区小型室外过山车，偏家庭向，不太刺激。<b>可选</b>——有时间再排。
-    </div>
-    <div class="ride-rate">排队 40–80 min · 大风/暴雨停运</div>
-  </div>
-</section>
+<div class="card ride"><h3>鹰马飞行 / 飞越侏罗纪 / 萌转过山车</h3><span class="lv">刺激 2</span>
+  <div class="meta"><span class="tag o">室外</span><span class="tag">99–100 cm</span></div>
+  <p class="small muted">都是小型过山车。鹰马排队区能看到海格小屋。飞越侏罗纪被大量吐槽"飞越水泥地"、排 1 小时不值。有空且 ≤ 20 分钟再玩。</p>
+  <div class="thr">阈值 20</div></div>
 
-<!-- 路线 -->
-<section id="route">
-  <div class="st">园区路线</div>
-  <div class="ss">入园右转 · 逆时针走 · 到了看 App 灵活调</div>
+<!-- ===== 鬼屋 ===== -->
+<h2 id="ghost">五个鬼屋</h2>
+<p class="muted small">17:00 开，22:00 截止排队。恐怖度按多篇实测共识排序。点「有优速通」标记你们买的三个（默认按推荐组合：二选一取盗墓笔记，三选二取画皮 + 静默）。</p><div class="why"><b>为什么这么选</b>：盗墓笔记是全天唯一排队从不掉下 80 分钟的，优速通省得最多；第五人格 21 点后只要 20–40 分钟，硬排划算。第二组里地下秘穴恐怖最低、排队最短、又在出口旁，天然适合最后硬排；画皮和静默排队 30–60 分钟，正好用优速通。9/17 一位刷了全部五个的博主给的组合是盗墓笔记 + 画皮 + 环球怪物，我把怪物换成静默，理由是怪物晚上 10 分钟不值一张。<cite data-s="olf en dmw irene"></cite></div>
 
-  <div class="map-wrap">
-    <svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-      <path d="M190 300 L100 280 Q30 240 30 170 Q30 60 130 40 L190 30 L250 40 Q350 60 350 170 Q350 240 280 280 L190 300 Z" fill="var(--sd)" stroke="var(--bd)" stroke-width="1.5"/>
-      <ellipse cx="190" cy="160" rx="40" ry="24" fill="var(--rns)" stroke="var(--rn)" stroke-width=".6" opacity=".4"/>
+<div class="card ghost" data-g="dm"><h3>盗墓笔记</h3><label class="sw"><input type="checkbox" data-k="g-dm" checked>有优速通</label>
+  <div class="desc"><span class="tag r">恐怖 5</span> <span class="tag p">小黄人区</span> 云顶天宫 1:1，通道只容一人，NPC 最密还从天花板出来。硬排 80–165 分钟全天不降，优速通 5–30 分钟。第一组二选一里选它，省时最多。</div><cite data-s="momo kk rr irene"></cite></div>
 
-      <rect x="150" y="286" width="80" height="22" rx="4" fill="var(--s)" stroke="var(--bd)" stroke-width="1.2"/>
-      <text x="190" y="301" text-anchor="middle" font-size="10" font-weight="700" fill="var(--t)">入口</text>
+<div class="card ghost" data-g="hp"><h3>画皮幽宅</h3><label class="sw"><input type="checkbox" data-k="g-hp" checked>有优速通</label>
+  <div class="desc"><span class="tag r">恐怖 4</span> <span class="tag p">侏罗纪入口与小黄人之间</span> 中式恐怖，纸扎人和真人 NPC 混在一起，靠氛围。硬排 20–50 分钟。</div><cite data-s="dmw olf"></cite></div>
 
-      <rect x="143" y="249" width="94" height="20" rx="4" fill="var(--acs)" stroke="var(--ac)" stroke-width=".8"/>
-      <text x="190" y="263" text-anchor="middle" font-size="9" font-weight="600" fill="var(--ac)">好莱坞大道</text>
+<div class="card ghost" data-g="jm"><h3>静默之地</h3><label class="sw"><input type="checkbox" data-k="g-jm" checked>有优速通</label>
+  <div class="desc"><span class="tag o">恐怖 2</span> <span class="tag p">小黄人区</span> 全程不许出声，机关为主真人少。硬排 30–60 分钟，21 点后 10–20。</div><cite data-s="en lily"></cite></div>
 
-      <rect x="264" y="213" width="84" height="46" rx="6" fill="var(--rds)" stroke="var(--rd)" stroke-width="1"/>
-      <text x="306" y="232" text-anchor="middle" font-size="10" font-weight="700" fill="var(--rd)">变形金刚</text>
-      <text x="306" y="244" text-anchor="middle" font-size="8" fill="var(--t2)">火种源 · 过山车</text>
+<div class="card ghost" data-g="d5"><h3>第五人格·逃离白沙街</h3><label class="sw"><input type="checkbox" data-k="g-d5">有优速通</label>
+  <div class="desc"><span class="tag o">恐怖 3</span> <span class="tag p">变形金刚区东侧</span> 解谜型，记数字找出口，走对了盖章换卡。NPC 妆造最好看，突脸少。硬排 70–110，21 点后 20–40。没优速通就 21 点再来。</div><cite data-s="xh nx en"></cite></div>
 
-      <rect x="292" y="114" width="70" height="38" rx="6" fill="var(--ors)" stroke="var(--or)" stroke-width=".8"/>
-      <text x="327" y="133" text-anchor="middle" font-size="9.5" font-weight="600" fill="var(--or)">小黄人</text>
-      <text x="327" y="145" text-anchor="middle" font-size="8" fill="var(--t2)">闹翻天</text>
+<div class="card ghost" data-g="mo"><h3>环球怪物：地下秘穴</h3><label class="sw"><input type="checkbox" data-k="g-mo">有优速通</label>
+  <div class="desc"><span class="tag g">恐怖 1</span> <span class="tag p">好莱坞 · 梅尔斯餐厅旁</span> 德古拉、科学怪人，西式经典，视觉丰富不太吓。硬排 15–50，晚上 10 分钟。离出口最近，适合最后收尾。</div><cite data-s="dmw en"></cite></div>
 
-      <rect x="158" y="34" width="118" height="48" rx="6" fill="var(--acs)" stroke="var(--ac)" stroke-width="1"/>
-      <text x="217" y="53" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ac)">哈利波特</text>
-      <text x="217" y="66" text-anchor="middle" font-size="8" fill="var(--t2)">禁忌之旅 · 对角巷</text>
-      <text x="217" y="77" text-anchor="middle" font-size="8" fill="var(--t2)">三把扫帚 · 黄油啤酒</text>
+<div class="card small">
+  <b>规则</b>：不用预约，普通票就能玩；优速通刷身份证或刷脸；不推荐 13 岁以下；禁止闪光灯；不能带面具和全套恐怖装扮入园。人多时园方会催场，别指望每个 NPC 都遇到。<cite data-s="hz lyp my"></cite>
+</div>
 
-      <rect x="28" y="70" width="92" height="42" rx="6" fill="var(--gns)" stroke="var(--gn)" stroke-width=".8"/>
-      <text x="74" y="89" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--gn)">侏罗纪世界</text>
-      <text x="74" y="102" text-anchor="middle" font-size="8" fill="var(--t2)">大冒险</text>
+<!-- ===== 吃 ===== -->
+<h2 id="food">吃什么</h2>
+<p class="muted small">可以带密封零食和水（禁玻璃瓶、自热、酒精）。每个卫生间外有直饮水，流量小。</p>
+<div class="card food"><div style="flex:1"><h3>猪软骨肋排炒饭 / 烤肋排饭</h3><div class="where">能量晶体补充站 · 变形金刚区</div><p class="small muted">全园最高共识好评，含脆骨，配黄油饼干。12 点半前不排。少数人嫌米少。</p><cite data-s="bb tj px"></cite></div><div class="price">≈70</div></div>
+<div class="card food"><div style="flex:1"><h3>肘子饭</h3><div class="where">好莱坞</div><p class="small muted">分量大、基本不排队、稳。</p><cite data-s="gz px"></cite></div><div class="price">≈70</div></div>
+<div class="card food"><div style="flex:1"><h3>三把扫帚</h3><div class="where">哈利波特区</div><p class="small muted">唯一每次都排队的餐厅，去是为了在电影里吃饭。排骨拼盘好评，整体两极。13 点后、19 点后排队短。</p><cite data-s="sbsz xy"></cite></div><div class="price">100–150/人</div></div>
+<div class="card food"><div style="flex:1"><h3>黄油啤酒</h3><div class="where">猪头酒吧（三把扫帚旁小门）· 哈利波特区</div><p class="small muted">无酒精，"甜奶油 + 甜汽水"，很多人嫌太甜，冰沙版好一点。两人买一杯尝。</p><cite data-s="xy tz"></cite></div><div class="price">50</div></div>
+<div class="card food"><div style="flex:1"><h3>万圣限定小吃</h3><div class="where">各区小食车</div><p class="small muted">恶魔鸡爪（鸡爪连鸡腿）、烟熏鸭腿好评。阿呜 / 阿饼造型派拍照大于味道，噎。</p><cite data-s="llk js dmw"></cite></div><div class="price">30–50</div></div>
+<div class="card food"><div style="flex:1"><h3>青苹果雪泥 / 可乐塔青苹果饮</h3><div class="where">可乐塔 · 各区</div><p class="small muted">解腻，口碑最好的饮品。小黄人区有蓝莓柠檬双味。</p><cite data-s="llk"></cite></div><div class="price">28–40</div></div>
+<div class="card food"><div style="flex:1"><h3>流浪者小馆</h3><div class="where">城市大道（园外，出园可去）</div><p class="small muted">万圣套餐 228 元三人吃不完，肋排、汉堡、意面都没踩雷。</p><cite data-s="px"></cite></div><div class="price">228 套</div></div>
+<div class="card small"><b>避坑</b>：奶昔（太甜腻）、巧克力工厂饮品 80–90、慕斯蛋糕、40 元小黄人雪糕、背离的秘密烤串饭。金枪鱼煎饼评价对半开，饿了可以试。<cite data-s="llk gz xy wan"></cite></div>
 
-      <rect x="28" y="174" width="92" height="38" rx="6" fill="var(--ors)" stroke="var(--or)" stroke-width=".8"/>
-      <text x="74" y="193" text-anchor="middle" font-size="9.5" font-weight="600" fill="var(--or)">功夫熊猫</text>
-      <text x="74" y="205" text-anchor="middle" font-size="8" fill="var(--t2)">神龙大侠之旅</text>
+<!-- ===== 雨 ===== -->
+<h2 id="rain">下雨怎么办</h2>
+<div class="card">
+  <p><b>核心：室内项目全不受影响，鬼屋全在室内。</b>雨会停的是霸天虎、鹰马、飞越侏罗纪、水世界表演、街头惊叫表演。</p>
+  <table>
+    <tr><td>小雨</td><td>全按计划，穿雨衣排队。哈利波特区雨天出片。</td></tr>
+    <tr><td>中雨</td><td>霸天虎可能间歇停，停了不等。水世界看 App 是否取消。</td></tr>
+    <tr><td>暴雨</td><td>室外全停，所有人挤进室内，禁忌之旅连优速通都排 1 小时。这时去功夫熊猫园区躲，等 21 点。</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:8px">排到跟前被停运可以找工作人员要补偿优速通，有先例但要主动说。雨衣比伞好：排队不挤人、上项目不用收、过山车不能带伞。园里雨衣贵 3–5 倍，提前买。</p><cite data-s="afei hy mb mt"></cite>
+</div>
 
-      <rect x="28" y="124" width="80" height="34" rx="6" fill="var(--rns)" stroke="var(--rn)" stroke-width=".8"/>
-      <text x="68" y="142" text-anchor="middle" font-size="9" font-weight="600" fill="var(--rn)">未来水世界</text>
-      <text x="68" y="153" text-anchor="middle" font-size="7.5" fill="var(--t2)">特技表演</text>
+<!-- ===== 带什么 ===== -->
+<h2 id="pack">带什么</h2>
+<div class="chk" id="pack-list">
+  <label><input type="checkbox" data-k="p1">身份证 ×2</label>
+  <label><input type="checkbox" data-k="p2">手机 + 充电宝</label>
+  <label><input type="checkbox" data-k="p3">一次性雨衣 ×2</label>
+  <label><input type="checkbox" data-k="p4">手机防水袋</label>
+  <label><input type="checkbox" data-k="p5">薄外套（晚上 19°）</label>
+  <label><input type="checkbox" data-k="p6">防滑运动鞋</label>
+  <label><input type="checkbox" data-k="p7">换洗袜子 ×2</label>
+  <label><input type="checkbox" data-k="p8">水瓶（可续直饮水）</label>
+  <label><input type="checkbox" data-k="p9">密封零食</label>
+  <label><input type="checkbox" data-k="p10">纸巾 / 湿巾</label>
+  <label><input type="checkbox" data-k="p11">塑料袋 ×2（湿衣服）</label>
+  <label><input type="checkbox" data-k="p12">有拉链口袋的衣服</label>
+</div>
+<p class="tiny">包 ≤ 56×36×23 cm。别带：玻璃瓶、自拍杆、折叠凳、自热食品、酒。</p>
 
-      <!-- Route arrows -->
-      <path d="M230 288 Q310 270 308 260" fill="none" stroke="var(--rd)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="270" cy="268" r="10" fill="var(--rd)"/><text x="270" y="272" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">1</text>
-
-      <path d="M328 213 Q342 178 327 155" fill="none" stroke="var(--or)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="340" cy="180" r="10" fill="var(--or)"/><text x="340" y="184" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">2</text>
-
-      <path d="M292 128 Q268 92 276 82" fill="none" stroke="var(--ac)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="278" cy="102" r="10" fill="var(--ac)"/><text x="278" y="106" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">3</text>
-
-      <path d="M158 58 Q128 68 120 76" fill="none" stroke="var(--gn)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="136" cy="64" r="10" fill="var(--gn)"/><text x="136" y="68" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">4</text>
-
-      <path d="M74 112 Q66 120 66 124" fill="none" stroke="var(--rn)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="56" cy="116" r="10" fill="var(--rn)"/><text x="56" y="120" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">5</text>
-
-      <path d="M68 158 Q70 166 70 174" fill="none" stroke="var(--or)" stroke-width="2" stroke-dasharray="6 3"/>
-      <circle cx="58" cy="164" r="10" fill="var(--or)"/><text x="58" y="168" text-anchor="middle" font-size="10" font-weight="900" fill="#fff">6</text>
-    </svg>
-    <div class="map-legend">
-      <span>❶❷ 变形金刚</span>
-      <span>❸ 哈利波特</span>
-      <span>❹ 侏罗纪</span>
-      <span>❺ 水世界</span>
-      <span>❻ 功夫熊猫</span>
-    </div>
-  </div>
-
-  <div class="al al-gn" style="margin-top:10px">
-    <b>为什么右转？</b>大多数人入园左转冲哈利波特。右转去变形金刚区人少得多，上午排队比下午短一大截。
-  </div>
-</section>
-
-<!-- 时间表 -->
-<section id="tl">
-  <div class="st">时间表</div>
-  <div class="ss">参考节奏 · 实际到了看 App 排队灵活调整</div>
-
-  <div class="tl">
-    <div class="tl-ph">出发</div>
-    <div class="tl-i">
-      <div class="tl-t">10:00</div>
-      <div class="tl-tr"><div class="tl-d"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">恒大江湾出发</div><div class="tl-x">吃好早餐、带零食水、下好「环球度假区」App</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t">11:00</div>
-      <div class="tl-tr"><div class="tl-d"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">到达 · 安检入园</div><div class="tl-x">开 App 看排队，哪个短先去哪个</div></div>
-    </div>
-
-    <div class="tl-ph">上午 · 先去变形金刚区</div>
-    <div class="tl-i">
-      <div class="tl-t clr-rd">11:15</div>
-      <div class="tl-tr"><div class="tl-d bg-rd"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">① 火种源争夺战</div><div class="tl-x">排 60–90 min · 排队区也有看头</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t clr-rd">12:30</div>
-      <div class="tl-tr"><div class="tl-d bg-rd"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">② 霸天虎过山车</div><div class="tl-x">排 60–90 min · 要存包！暴雨跳过</div></div>
-    </div>
-
-    <div class="tl-ph">午饭 · 13:30–14:30</div>
-    <div class="tl-i">
-      <div class="tl-t clr-or">13:30</div>
-      <div class="tl-tr"><div class="tl-d bg-or"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">午餐 + 逛对角巷</div><div class="tl-x">三把扫帚吃饭 → 喝黄油啤酒 → 逛店拍照</div></div>
-    </div>
-
-    <div class="tl-ph">下午 · 排队回落，上大项目</div>
-    <div class="tl-i">
-      <div class="tl-t" style="color:var(--ac)">14:30</div>
-      <div class="tl-tr"><div class="tl-d"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">③ 禁忌之旅</div><div class="tl-x">全园 TOP1 · 午后排队比上午短 · 排队区是城堡</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t clr-gn">16:00</div>
-      <div class="tl-tr"><div class="tl-d bg-gn"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">④ 侏罗纪 或 小黄人</div><div class="tl-x">看哪个排队短 · 时间够就两个都去</div></div>
-    </div>
-
-    <div class="tl-ph">傍晚 · 鬼屋 17:00 开放</div>
-    <div class="tl-i">
-      <div class="tl-t clr-pu">17:00</div>
-      <div class="tl-tr"><div class="tl-d bg-pu"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">鬼屋 #1 盗墓笔记</div><div class="tl-x">优速通 · 最热门必须先去</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t clr-pu">18:00</div>
-      <div class="tl-tr"><div class="tl-d bg-pu"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">鬼屋 #2 第五人格</div><div class="tl-x">优速通 · 互动最强</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t clr-pu">19:00</div>
-      <div class="tl-tr"><div class="tl-d bg-pu"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">鬼屋 #3 寂静之地</div><div class="tl-x">优速通 · 三张全用完</div></div>
-    </div>
-
-    <div class="tl-ph">夜间 · 自由时间</div>
-    <div class="tl-i">
-      <div class="tl-t">20:00</div>
-      <div class="tl-tr"><div class="tl-d"></div><div class="tl-l"></div></div>
-      <div class="tl-c"><div class="tl-n">灯光秀 · 巡演 · 补刷</div><div class="tl-x">灯光秀约 19:30 · 晚上排队大幅缩短，可二刷喜欢的</div></div>
-    </div>
-    <div class="tl-i">
-      <div class="tl-t">21:00+</div>
-      <div class="tl-tr"><div class="tl-d"></div><div class="tl-l" style="min-height:4px"></div></div>
-      <div class="tl-c"><div class="tl-n">离园</div><div class="tl-x">城市大道（免费区）逛纪念品</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 鬼屋 -->
-<section id="ghost">
-  <div class="st">鬼屋三选</div>
-  <div class="ss">5 个鬼屋选 3 个用优速通 · 按推荐排序</div>
-
-  <div class="ghost">
-    <div class="ghost-n">1</div>
-    <div><div class="ghost-name">盗墓笔记</div><div class="ghost-meta">2026 全新 · 云顶天宫 1:1 还原 · 禁婆演技炸裂 · 中秋普通队排到 165 min</div></div>
-    <div class="ghost-w">优速通必用</div>
-  </div>
-  <div class="ghost">
-    <div class="ghost-n">2</div>
-    <div><div class="ghost-name">第五人格</div><div class="ghost-meta">2026 全新 · 监管者追逐 + 密码机解谜 · 互动最强 · 普通队 150 min+</div></div>
-    <div class="ghost-w">优速通必用</div>
-  </div>
-  <div class="ghost">
-    <div class="ghost-n">3</div>
-    <div><div class="ghost-name">寂静之地</div><div class="ghost-meta">好莱坞 IP · 全程禁声沉浸式 · 气氛最恐怖 · 排约 60 min</div></div>
-    <div class="ghost-w">优速通推荐</div>
-  </div>
-  <div class="ghost" style="opacity:.5">
-    <div class="ghost-n" style="color:var(--t3)">-</div>
-    <div><div class="ghost-name">画皮幽宅</div><div class="ghost-meta">聊斋志异 · 返场</div></div>
-    <div class="ghost-w" style="background:var(--sd);color:var(--t3)">备选</div>
-  </div>
-  <div class="ghost" style="opacity:.5">
-    <div class="ghost-n" style="color:var(--t3)">-</div>
-    <div><div class="ghost-name">环球怪物：地下秘穴</div><div class="ghost-meta">德古拉 / 科学怪人 · 返场</div></div>
-    <div class="ghost-w" style="background:var(--sd);color:var(--t3)">备选</div>
-  </div>
-
-  <div class="al al-or" style="margin-top:10px">
-    <b>策略：</b>17:00 准时先去盗墓笔记（最热、优速通省最多时间）。第五人格互动性强值得第二用。寂静之地排队相对短，第三张优速通给它。
-  </div>
-</section>
-
-<!-- 吃喝 -->
-<section id="food">
-  <div class="st">吃喝指南</div>
-  <div class="ss">可带密封零食和水入园 · 禁止玻璃瓶和自加热食品</div>
-
-  <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ac)">正餐</div>
-
-  <div class="food">
-    <div class="food-top"><span class="food-name">三把扫帚 ★</span><span class="food-price">人均 100–150</span></div>
-    <div class="food-loc">哈利波特区 · 对角巷旁</div>
-    <div class="food-desc">烤鸡拼猪肋排是招牌，炸鱼薯条也不错。环境还原电影小酒馆，<b>吃饭就是打卡</b>。13 点后排队比 12 点好很多。</div>
-  </div>
-
-  <div class="food">
-    <div class="food-top"><span class="food-name">熊猫婆婆</span><span class="food-price">人均 48–68</span></div>
-    <div class="food-loc">功夫熊猫区</div>
-    <div class="food-desc">性价比最高。猪肉玉米煎饺 48 元/8 个、川椒青柠烤鸡配饭 68 元。空调座位多，人没三把扫帚挤。</div>
-  </div>
-
-  <div style="font-size:14px;font-weight:700;margin:16px 0 8px;color:var(--or)">小吃饮品</div>
-
-  <div class="food">
-    <div class="food-top"><span class="food-name">黄油啤酒 ★</span><span class="food-price">50 元 / 杯 80</span></div>
-    <div class="food-loc">哈利波特区 · 猪头酒吧（三把扫帚旁小门，人少）</div>
-    <div class="food-desc">冰沙版比常规版好喝（甜度低）。不含酒精。<b>来哈利波特必喝</b>。</div>
-  </div>
-
-  <div class="food">
-    <div class="food-top"><span class="food-name">金枪鱼煎饼</span><span class="food-price">约 30–38 元</span></div>
-    <div class="food-loc">好莱坞大道 · 入园后街边小食车</div>
-    <div class="food-desc">用料实在性价比高，一个能垫肚子。和可乐塔搭配是经典组合。</div>
-  </div>
-
-  <div class="food">
-    <div class="food-top"><span class="food-name">可乐塔青苹果饮</span><span class="food-price">28 元</span></div>
-    <div class="food-loc">各区域可乐塔门店</div>
-    <div class="food-desc">园区口碑最好的饮品，<b>酸甜解腻</b>。走累了随手买一杯。</div>
-  </div>
-
-  <div class="al al-rd" style="margin-top:10px">
-    <b>避坑：</b>背离的秘密烤串饭（差评最多）、侏罗纪鸡腿（性价比低）。
-  </div>
-</section>
-
-<!-- 雨天 -->
-<section id="rain">
-  <div class="st">雨天怎么办</div>
-  <div class="al al-rn"><b>80% 项目室内，雨是你们的盟友。</b>中秋 + 雨会劝退一部分人，实际排队可能比预测短。</div>
-  <div class="rgrid">
-    <span class="n">禁忌之旅</span><span class="rok">室内 ✓</span>
-    <span class="n">火种源争夺战</span><span class="rok">室内 ✓</span>
-    <span class="n">侏罗纪大冒险</span><span class="rok">室内 ✓</span>
-    <span class="n">小黄人闹翻天</span><span class="rok">室内 ✓</span>
-    <span class="n">功夫熊猫</span><span class="rok">室内 ✓</span>
-    <span class="n">全部鬼屋 ×5</span><span class="rok">室内 ✓</span>
-    <span class="n">霸天虎过山车</span><span class="rrisk">室外 · 暴雨停</span>
-    <span class="n">鹰马飞行</span><span class="rrisk">室外 · 大风停</span>
-    <span class="n">未来水世界</span><span class="rrisk">暴雨取消</span>
-  </div>
-  <div class="card" style="margin-top:10px">
-    <div class="card-h">当天看雨大小决定</div>
-    <div class="card-b">
-      <b>小雨 →</b> 全按计划走，穿雨衣排队<br>
-      <b>中雨 →</b> 霸天虎可能间歇暂停，暂停就跳过<br>
-      <b>暴雨 →</b> 放弃室外项目，全天室内 + 鬼屋
-    </div>
-  </div>
-</section>
-
-<!-- 随身 -->
-<section id="pack">
-  <div class="st">随身清单</div>
-  <div class="ss">点击打勾 · 自动保存</div>
-  <div class="cl">
-    <label><input type="checkbox" data-k="0"><span>身份证 ×2</span></label>
-    <label><input type="checkbox" data-k="1"><span>手机+充电宝</span></label>
-    <label><input type="checkbox" data-k="2"><span>雨衣 ×2</span></label>
-    <label><input type="checkbox" data-k="3"><span>防滑运动鞋</span></label>
-    <label><input type="checkbox" data-k="4"><span>薄外套</span></label>
-    <label><input type="checkbox" data-k="5"><span>水瓶</span></label>
-    <label><input type="checkbox" data-k="6"><span>密封零食</span></label>
-    <label><input type="checkbox" data-k="7"><span>纸巾/湿巾</span></label>
-    <label><input type="checkbox" data-k="8"><span>塑料袋 ×2</span></label>
-    <label><input type="checkbox" data-k="9"><span>换洗袜子</span></label>
-  </div>
-  <div class="al al-or" style="margin-top:10px">
-    <b>为什么雨衣不带伞？</b>排队撑伞挤别人、进项目要收、过山车不能带。穿一次性雨衣全天无感。<b>提前买好</b>，园区贵 3–5 倍。
-  </div>
-</section>
-
+<h2 id="srcs">依据的原帖</h2>
+<p class="muted small">全部是 2026 年小红书实测帖，按点赞排序。点标题跳原帖（手机上会拉起小红书 App）。页面里每条建议下面的灰字就是对应出处。</p>
+<div class="card srcs" id="srclist"></div>
 <footer>
-  数据来源：小红书 2.2 万赞「玩后感」 · 携程深度测评 · 环球官网 · 通州交管公告<br>
-  天气：苹果天气 19–24°C · 墨迹 17–23°C/95%<br>
-  惊彩季 9/5–11/2 · 鬼屋 17:00–22:00 · 闭园 22:00
+  <p>来源：北京环球度假区官网（运营日历、地图坐标接口、入园须知、乘客安全指南、惊彩活动页）；小红书 2026-09 76 篇实测帖及评论；北京交管中秋研判；通州交通管制通告。天气取 9/22 苹果天气，出发前一晚再核。</p>
+  <p>排队分钟数是 9 月实测区间，当天以 App 为准。</p>
+  <button class="reset" id="reset">清空所有打勾</button>
 </footer>
+</main>
 
 <script>
-try{
-  const S='usj926v4';
-  const saved=JSON.parse(localStorage.getItem(S)||'{}');
-  document.querySelectorAll('.cl input[type=checkbox]').forEach(cb=>{
-    const k=cb.dataset.k;
-    if(saved[k])cb.checked=true;
-    cb.addEventListener('change',()=>{
-      try{const st={};document.querySelectorAll('.cl input:checked').forEach(c=>{st[c.dataset.k]=1});localStorage.setItem(S,JSON.stringify(st))}catch(e){}
-    });
+var SRC={"zq":{"t":"环球影城中秋节全天入园，三万至三万五千人","l":"26","a":"诡魅狐","d":"09/21","u":"https://www.xiaohongshu.com/explore/6ab08ca2000000002a02c3a6?xsec_token=AB6CptZmaXWfuq2HheHFmOGvr5MD1FCW5uie3LsTOYogI=&xsec_source=pc_search"},"will":{"t":"北京环球影城人流量预测","l":"533","a":"Will","d":"09/13","u":"https://www.xiaohongshu.com/explore/6aa625a7000000002901a5af?xsec_token=ABJ1Q_0c69gE7_3bgGX4GwUShCHfE6IAaXLgiXJreRPdw=&xsec_source=pc_search"},"momo":{"t":"北环一天8个项目+全部鬼屋","l":"867","a":"momo","d":"09/10","u":"https://www.xiaohongshu.com/explore/6aa2c4640000000027008434?xsec_token=ABMJhhTOjTusPNxWPFm0J4PFQO-VYuKNVExmc6ZMPR3qY=&xsec_source=pc_search"},"nx":{"t":"环球影城正常排队+鬼屋攻略","l":"27","a":"怒血思密达","d":"09/05","u":"https://www.xiaohongshu.com/explore/6a9c2ea8000000000b003abb?xsec_token=AB9ARB-y4LalYjQlFyI_L_gTVGJKpPFRn-H6rYflZT3so=&xsec_source=pc_search"},"lily":{"t":"一天刷完环球五大鬼屋，🈚优速通版","l":"772","a":"粒粒Lily_皆","d":"09/11","u":"https://www.xiaohongshu.com/explore/6aa2e14200000000110365a3?xsec_token=ABMJhhTOjTusPNxWPFm0J4PNwAQVRH9cnW5e_cWdiqNgM=&xsec_source=pc_search"},"en":{"t":"北京环球影城一天刷完五个鬼屋repo","l":"465","a":"恩恩嗯嗯","d":"09/14","u":"https://www.xiaohongshu.com/explore/6aa7ffb5000000002803b1fc?xsec_token=ABRIj14Qn6x5sOa9vHYilEt1sYc_M_SfYfzqviYm6murI=&xsec_source=pc_search"},"olf":{"t":"环球影城5大鬼屋评级👻走第一个其实不可","l":"42","a":"奥利弗","d":"09/17","u":"https://www.xiaohongshu.com/explore/6aabcfba000000002802eeb4?xsec_token=ABaJT5_hjcNWpxss0e8l10DMqls4SaAy_3-VtcP7u9XHQ=&xsec_source=pc_search"},"dmw":{"t":"howto 🎃 2026北京环球惊彩五大空间","l":"47","a":"大魔王（懒人打卡","d":"09/21","u":"https://www.xiaohongshu.com/explore/6ab0c632000000003400d1ce?xsec_token=AB6CptZmaXWfuq2HheHFmOGhTM36VhnN31xO1BU_izC6g=&xsec_source=pc_search"},"irene":{"t":"环球鬼屋优速通五选三","l":"18","a":"Irene小土💭","d":"09/09","u":"https://www.xiaohongshu.com/explore/6aa0d58f000000002901884d?xsec_token=AB8WsJXO2RUO6qVPc1-2sQ_V9hMbL-pitySPn2EQQRYSs=&xsec_source=pc_search"},"rr":{"t":"9.4环球鬼屋，盗墓笔记优速通也得30min","l":"34","a":"溶溶月","d":"09/04","u":"https://www.xiaohongshu.com/explore/6a9abf0d0000000012000dca?xsec_token=ABq7op-7_UQshq8UG7txCptPT0aF158BURQBQUdtvqVFw=&xsec_source=pc_search"},"kk":{"t":"更新！9.5盗墓笔记目前排队接近3小时","l":"250","a":"凯凯🥕鸟巢听到尽","d":"09/05","u":"https://www.xiaohongshu.com/explore/6a9bd810000000002601537b?xsec_token=ABfeRvfZD-vy69XpGYOvZ0vgvE-JW4Gb1Tt0NF8tT2KvI=&xsec_source=pc_search"},"my":{"t":"关于2026环球鬼屋要说几点","l":"569","a":"漫游代理人","d":"09/05","u":"https://www.xiaohongshu.com/explore/6a9c1415000000001200351e?xsec_token=AB9ARB-y4LalYjQlFyI_L_gaAl0TzU5YmyW_fi6rwqZcU=&xsec_source=pc_search"},"xh":{"t":"北环2026年五大鬼屋游玩体验","l":"1584","a":"蟹黄汤包太好吃","d":"09/03","u":"https://www.xiaohongshu.com/explore/6a998e93000000002b01f848?xsec_token=ABfYEogC3LJXXt16N95_5E9jtjSOXSVyZX6qnbhE8qW2c=&xsec_source=pc_search"},"qx":{"t":"玩鬼屋一定要远离自嬷小团体好吗。。","l":"2215","a":"七濑","d":"09/08","u":"https://www.xiaohongshu.com/explore/6a9ee3fd0000000012034da8?xsec_token=AB2agR-VOCeaZPDOjgBUIF1TlO4GKocOuWVMwWkmFQq5c=&xsec_source=pc_search"},"hz":{"t":"环球影城鬼屋不废腿攻略（盗墓笔记）","l":"794","a":"欢仔很忙🍓","d":"09/03","u":"https://www.xiaohongshu.com/explore/6a9934c5000000002600b5e6?xsec_token=ABfYEogC3LJXXt16N95_5E9iUSmOkXxNr8WtXB4PTpaRU=&xsec_source=pc_search"},"cn":{"t":"2026 惊彩环球 保姆攻略","l":"88","a":"拆腻思空腹","d":"09/01","u":"https://www.xiaohongshu.com/explore/6a968b8300000000260194c8?xsec_token=AB9TJPQLNctZeGU-cna83_Fl-lq_ENJZVLnbuQjG52vHU=&xsec_source=pc_search"},"bb":{"t":"所有人把晚饭吐了来环球吃这个","l":"9167","a":"啵啵汽水大人","d":"04/11","u":"https://www.xiaohongshu.com/explore/69da5509000000002302554b?xsec_token=ABJ5BxRs2fkCngTm9LKkVWaPMDH_o-rP3WsFB2HSRLzHU=&xsec_source=pc_search"},"tj":{"t":"环球能量晶体补充站这个炒饭可以单独出道了","l":"1634","a":"天津美食大王","d":"03/28","u":"https://www.xiaohongshu.com/explore/69c7783b000000002301c541?xsec_token=ABcbIAT18-lU-bMLAGnbT8va_4zZQNsOrgw6-xB_Uy3eA=&xsec_source=pc_search"},"xy":{"t":"北京环球影城吃喝记录（附价格参考）","l":"6766","a":"小悦学妹","d":"04/23","u":"https://www.xiaohongshu.com/explore/69ea0e08000000001e00e046?xsec_token=ABAKougi7KGzjkRIt5yZiZSvVs2Q_GYJcMxPHsSYlgmDI=&xsec_source=pc_search"},"llk":{"t":"北京环球必吃top5！！！！！！","l":"1538","a":"李丽坤_","d":"06/30","u":"https://www.xiaohongshu.com/explore/6a43dab20000000006031a1e?xsec_token=AByoyIWnHXjAI7F-KnLSexDnLNL-GnkAjcXMkNnSJPnu8=&xsec_source=pc_search"},"px":{"t":"我的法克呀好难吃。","l":"2195","a":"片享","d":"07/12","u":"https://www.xiaohongshu.com/explore/6a53398b0000000011019ee5?xsec_token=ABzs01kKleOS_RNhb5rn2ox1yUXTbZTMDXkvcpNNFaSuc=&xsec_source=pc_search"},"gz":{"t":"一条视频总结北京环球影城美食9件套（附价格","l":"2326","a":"公主4个胃","d":"08/20","u":"https://www.xiaohongshu.com/explore/6a866a940000000017001407?xsec_token=AB8vlB88esf_ipKsGDALvIEJJqkeK-WjrovnHCuNnJqAQ=&xsec_source=pc_search"},"sbsz":{"t":"环球三把扫帚最新菜单","l":"1187","a":"环球影城餐厅","d":"08/04","u":"https://www.xiaohongshu.com/explore/6a7142bf000000003302ebb9?xsec_token=ABltclG3Va01brJcVzeNqV7z_twKO__D73Wohfta4unVM=&xsec_source=pc_search"},"afei":{"t":"暴雨加爆园，今天来环球啥都赶上了","l":"139","a":"环球阿飞","d":"08/25","u":"https://www.xiaohongshu.com/explore/6a8d3639000000002802725e?xsec_token=ABeyQgpZmxKyFzGG8veLE6zv7lX4CtMJt-GmL9uYJkVOM=&xsec_source=pc_search"},"hy":{"t":"北京环球影城下雨了怎么玩❓先别急着失望‼️","l":"52","a":"禾壹旅拍","d":"07/07","u":"https://www.xiaohongshu.com/explore/6a4cc1d9000000001101bf37?xsec_token=ABi_Shdn3enVg42uNIWJfCQHN_mmRCfsMWvYVfA2uMAmw=&xsec_source=pc_search"},"mb":{"t":"8.25北京环球暴雨","l":"84","a":"目标减脂增肌","d":"08/25","u":"https://www.xiaohongshu.com/explore/6a8d389b000000002402711e?xsec_token=ABeyQgpZmxKyFzGG8veLE6zl8aqtQ6LMNbNO_BQbRl_d0=&xsec_source=pc_search"},"mt":{"t":"9.7环球影城五个鬼屋刷完版时间线！","l":"234","a":"木桃君","d":"09/07","u":"https://www.xiaohongshu.com/explore/6a9ecae10000000011038338?xsec_token=AB2agR-VOCeaZPDOjgBUIF1WqPlt6j0qOZ4YXerRDh6IM=&xsec_source=pc_search"},"mnl":{"t":"北京环球影城最煎熬是单人收手机硬排霸天虎","l":"384","a":"迷你龙不是蛇","d":"04/14","u":"https://www.xiaohongshu.com/explore/69ddb4e7000000001a022ce4?xsec_token=ABIvGdMK-SPQlLhWVXXwx61PC1UxX9swU5xuDOpaAfqHg=&xsec_source=pc_search"},"xiaohui":{"t":"汇总北京环球影城必须寄存包包的三大项目","l":"210","a":"环球管家小辉","d":"06/21","u":"https://www.xiaohongshu.com/explore/6a375173000000001101da4a?xsec_token=ABKqw3uBTP7pQX_8yU8-HoHGxE_j0vESci6hla8ZLh1p8=&xsec_source=pc_search"},"tz":{"t":"懒人环球影城的玩拍攻略（节假日版本）","l":"828","a":"桃汁草莓派","d":"05/02","u":"https://www.xiaohongshu.com/explore/69f61c0b00000000380345ca?xsec_token=AB4aUNaj2TkziqjFNmxmhbrDN8Bc-5qku4rEUSOo8cqBM=&xsec_source=pc_search"},"sp":{"t":"北环-11 点入园 7 个项目版","l":"1","a":"Surpass","d":"08/02","u":"https://www.xiaohongshu.com/explore/6a6f4af00000000032020eb1?xsec_token=AB4zryjjA9Dl05voon7Pdl3IlV2SCsqxRZTMrl7IRxwKc=&xsec_source=pc_search"},"cz":{"t":"北京环球影城性价比最低的项目","l":"731","a":"路过的一只橙子🍊","d":"05/28","u":"https://www.xiaohongshu.com/explore/6a17be8100000000350331b4?xsec_token=AB8HqfD38Z3t_im1jARisyUrCjGUSNJEIaPqKxkQpQRi8=&xsec_source=pc_search"},"qlz":{"t":"环球万圣最全保姆级攻略来啦 超详细","l":"1568","a":"其乐乐乐-乐开花","d":"09/04","u":"https://www.xiaohongshu.com/explore/6a9ae30f00000000110353b9?xsec_token=ABq7op-7_UQshq8UG7txCptPmJ1os_fG5XNfw-KC5Yrh4=&xsec_source=pc_search"},"momo2":{"t":"北京环球影城万圣季惊彩导览体验分享","l":"23","a":"momo","d":"09/13","u":"https://www.xiaohongshu.com/explore/6aa602f50000000026022169?xsec_token=ABJ1Q_0c69gE7_3bgGX4GwUWxkNX51GKINl2S8Q6ELTw0=&xsec_source=pc_search"},"mf":{"t":"🆘环球影城9.20-9.24日客流量预报！中","l":"5","a":"北京环球影城魔法","d":"09/19","u":"https://www.xiaohongshu.com/explore/6aad30df000000002901ab6b?xsec_token=ABgKvn7qxKs-pcE-N1qqxRfb0iKRnG4tz78uJk1ySGCYg=&xsec_source=pc_search"},"lyp":{"t":"刚开园环球鬼屋的优速通已售罄！","l":"15","a":"LYPzzz","d":"09/05","u":"https://www.xiaohongshu.com/explore/6a9b8119000000002802e6ff?xsec_token=ABfeRvfZD-vy69XpGYOvZ0vhyBXMC-ykRJcMy_ptnnuDo=&xsec_source=pc_search"},"js":{"t":"速评一下今年的惊彩环球","l":"171","a":"JinGirlG","d":"09/04","u":"https://www.xiaohongshu.com/explore/6a999abd000000002900dd9a?xsec_token=ABfYEogC3LJXXt16N95_5E9kUVxtksIKpRXY6O5abiWfo=&xsec_source=pc_search"},"shevy":{"t":"环球影城9.13（周日）硬核排队","l":"526","a":"Sh-evy的家","d":"09/14","u":"https://www.xiaohongshu.com/explore/6aa75ee20000000026018c46?xsec_token=ABRIj14Qn6x5sOa9vHYilEtxgepebZILIRdrrdgTY5_xo=&xsec_source=pc_search"},"xiaoyao":{"t":"北京环球影城午间入园游玩攻略","l":"66","a":"逍遥","d":"07/24","u":"https://www.xiaohongshu.com/explore/6a62fb87000000001101de22?xsec_token=ABWRAigpd7cmdbdtgkckvi-LYFnTptaQXdclme6gaz9WY=&xsec_source=pc_search"},"lx":{"t":"北京环球影城实测：路线对了更好玩","l":"2158","a":"小红薯68960","d":"08/04","u":"https://www.xiaohongshu.com/explore/6a71eb47000000003301fba7?xsec_token=ABltclG3Va01brJcVzeNqV74O6qvjKPEzEnYPY2V07H1E=&xsec_source=pc_search"},"wdh":{"t":"环球爆园日无优速通刷完五大鬼屋","l":"512","a":"豌豆黄","d":"09/06","u":"https://www.xiaohongshu.com/explore/6a9c414700000000290119ef?xsec_token=AB9ARB-y4LalYjQlFyI_L_gVA6UPWUi-O5QFT8vnHG-Og=&xsec_source=pc_search"},"wan":{"t":"环球影城避雷了","l":"619","a":"男式发型设计 佳","d":"08/10","u":"https://www.xiaohongshu.com/explore/6a79bdf000000000280076ae?xsec_token=ABAnJlBKubT2Q5T1zl-T-vZM1--CouXGW2HMbkOwM1D_I=&xsec_source=pc_search"}};
+(function(){
+  var KEY='usj926.';
+  function get(k){try{return localStorage.getItem(KEY+k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(KEY+k,v)}catch(e){}}
+  // checkboxes
+  var boxes=document.querySelectorAll('input[type=checkbox][data-k]');
+  boxes.forEach(function(b){
+    var k=b.getAttribute('data-k'), saved=get(k);
+    if(saved!==null) b.checked=saved==='1';
+    paint(b);
+    b.addEventListener('change',function(){set(k,b.checked?'1':'0');paint(b)});
   });
-}catch(e){}
+  function paint(b){
+    var step=b.closest('.step'); if(step) step.classList.toggle('done',b.checked);
+    var lab=b.closest('label'); if(lab&&lab.parentElement&&lab.parentElement.id==='pack-list') lab.classList.toggle('done',b.checked);
+    var g=b.closest('.ghost'); if(g) g.classList.toggle('has',b.checked);
+  }
+  document.getElementById('reset').addEventListener('click',function(){
+    if(!confirm('清空所有打勾？'))return;
+    boxes.forEach(function(b){var k=b.getAttribute('data-k');b.checked=/^g-(dm|hp|jm)$/.test(k);set(k,b.checked?'1':'0');paint(b)});
+  });
+  // phase by time
+  var phases=[].slice.call(document.querySelectorAll('.phase'));
+  var names={ph0:['出发前','11:00 进园左转'],ph1:['变形金刚区','13:00 顺时针往侏罗纪'],ph2:['下午慢慢走','16:40 到小黄人区准备鬼屋'],ph3:['鬼屋优速通窗口','20:00 前三个进完'],ph4:['看表演拍夜景','21:00 收大项目'],ph5:['黄金一小时','22:00 打车回家']};
+  var d=new Date(), h=d.getHours()+d.getMinutes()/60, cur=null;
+  var isDay = d.getFullYear()===2026 && d.getMonth()===8 && d.getDate()===26;
+  var days = Math.ceil((new Date(2026,8,26)-new Date(d.getFullYear(),d.getMonth(),d.getDate()))/864e5);
+  if(isDay){phases.forEach(function(p){var s=+p.dataset.s,e=+p.dataset.e; if(h>=s&&h<e) cur=p;}); if(h>=22) cur=null;}
+  var openSaved=get('open');
+  phases.forEach(function(p){
+    p.open = cur? p===cur : (p.id==='ph0');
+    p.addEventListener('toggle',function(){});
+  });
+  var txt=document.getElementById('nowTxt'), nxt=document.getElementById('nowNxt');
+  if(cur){cur.classList.add('cur');txt.textContent=names[cur.id][0];nxt.textContent='下一步 · '+names[cur.id][1];}
+  else if(isDay&&h>=22){txt.textContent='闭园了，回家';nxt.textContent='落客区打车 · 约 80–110 元';}
+  else if(isDay){txt.textContent='还没出发';nxt.textContent='10:00 打车出门';}
+  else if(days>0){txt.textContent='还有 '+days+' 天';nxt.textContent='当天打开会自动跳到当前时段 · 先把「带什么」勾一遍';}
+  else{txt.textContent='9·26 已过';nxt.textContent='';}
+  document.getElementById('now').addEventListener('click',function(){var t=cur||phases[0];t.open=true;t.scrollIntoView({behavior:'smooth',block:'start'})});
+  // citations
+  document.querySelectorAll('cite[data-s]').forEach(function(c){
+    var ks=c.getAttribute('data-s').split(/\s+/).filter(Boolean), h='依据 ';
+    ks.forEach(function(k){var v=SRC[k]; if(!v)return; h+='<a href="'+v.u+'" target="_blank" rel="noopener">《'+v.t+'》<b>'+v.l+'赞</b> '+v.d+'</a>';});
+    c.innerHTML=h;
+  });
+  var list=document.getElementById('srclist'), arr=Object.keys(SRC).map(function(k){return SRC[k]});
+  arr.sort(function(a,b){return (+b.l)-(+a.l)});
+  list.innerHTML=arr.map(function(v){return '<a href="'+v.u+'" target="_blank" rel="noopener">'+v.t+'<span>'+v.a+' · '+v.l+'赞 · '+v.d+'</span></a>'}).join('');
+  // nav highlight
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function hl(){var y=window.scrollY+140,i=0;secs.forEach(function(s,j){if(s&&s.offsetTop<=y)i=j});links.forEach(function(a,j){a.classList.toggle('on',j===i)})}
+  window.addEventListener('scroll',hl,{passive:true});hl();
+})();
 </script>
+</body>
+</html>
